@@ -33,12 +33,14 @@
     align-items: center;
     width: 100%;
     color: white; /*0926*/
+
 }
 
 .list-item__icon {
     width: 100%;
     max-height: 1.75rem;
     max-width: 1.75rem;
+    filter: invert(1);
 }
 
 .list-item__info {

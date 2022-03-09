@@ -107,8 +107,9 @@
 }
 
 .logo-container img {
-max-height: 100%;
-max-width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    filter: invert(1);
 }
 
 .content__info .title {
@@ -164,6 +165,7 @@ max-width: 100%;
     display: block;
     margin-left: 0.3125rem;
     margin-right: auto;
+    filter: invert(1);
 }
 
 .content__info .fees {

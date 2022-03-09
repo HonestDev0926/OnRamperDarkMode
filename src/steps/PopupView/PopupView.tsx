@@ -140,9 +140,9 @@ const PopupLauncherView: React.FC<PopupLauncherViewType> = (props) => {
                         src={iframeUrl}
                         allow={props.features}
                         style={{
-                            width: '100%',
+                            width: '95%',
                             minHeight: '100%',
-                            borderStyle: 'none'
+                            borderStyle: 'none',
                         }}
                     />
                 }
