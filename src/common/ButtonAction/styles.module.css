@@ -1,0 +1,28 @@
+/*-------------------button-------------------*/
+
+.button-action {
+    outline: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 0px;
+    border-color: #DEDEDE;
+    padding: 0.78rem;
+    color: white;
+    font-size: 1.25em;
+    width: 100%;
+    margin-top: auto;
+    height: fit-content;
+    height: -moz-fit-content;
+}
+
+.button-action--disabled {
+    background-color: darkgray;
+    cursor: unset;
+}
+
+.button-action--small {
+    font-size: 1em;
+    padding: 0.625em 1em;
+}

@@ -1,0 +1,22 @@
+import React from 'react';
+import { ItemType } from '../../ApiContext';
+declare type InputTextType = {
+    disabled?: boolean;
+    symbol?: string;
+    symbols?: ItemType[];
+    placeholder?: string;
+    label?: string;
+    className?: string;
+    icon?: string;
+    iconPosition?: 'start' | 'end';
+    onChange?: (name: string, value: any) => void;
+    value?: number | string;
+    type?: string;
+    name: string;
+    onIconClick?: (name: string) => void;
+    error?: string;
+    onSymbolChange?: (symbol: ItemType | undefined) => void;
+    onHelpClick?: () => void;
+};
+declare const InputText: React.FC<InputTextType>;
+export default InputText;
