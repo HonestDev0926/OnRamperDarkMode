@@ -1253,23 +1253,6 @@
     "iso3166-alpha-converter" "^1.0.0"
     "scrypt-js" "^3.0.1"
 
-"@onramper/widget@^2.2.12":
-  "integrity" "sha512-wW/VYXtnwgudWXPNuee5uw9SpYdC1dBNWgtle041dOl+ja7Uo8FY2Otj+WI0X/TCG0FmlJWhV+Iw4B2UyuWq2w=="
-  "resolved" "https://registry.npmjs.org/@onramper/widget/-/widget-2.2.12.tgz"
-  "version" "2.2.12"
-  dependencies:
-    "@onramper/moonpay-adapter" "^1.6.16"
-    "@sentry/browser" "^6.1.0"
-    "@sentry/react" "^6.2.0"
-    "abort-controller" "^3.0.0"
-    "i18next" "^21.5.5"
-    "i18next-browser-languagedetector" "^6.1.2"
-    "iso3166-alpha-converter" "^1.0.0"
-    "react-calendar" "^3.2.0"
-    "react-i18next" "^11.14.3"
-    "react-transition-group" "^4.4.1"
-    "rendered-country-flags" "^1.2.0"
-
 "@sentry/browser@^6.1.0", "@sentry/browser@6.2.0":
   "integrity" "sha512-4r3paHcHXLemj471BtNDhUs2kvJxk5XDRplz1dbC/LHXN5PWEXP4anhGILxOlxqi4y33r53PIZu3xXFjznaVZA=="
   "resolved" "https://registry.npmjs.org/@sentry/browser/-/browser-6.2.0.tgz"
