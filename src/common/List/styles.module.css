@@ -40,7 +40,7 @@
     width: 100%;
     max-height: 1.75rem;
     max-width: 1.75rem;
-    filter: invert(1);
+    filter: invert(1); /*K0926*/
 }
 
 .list-item__info {

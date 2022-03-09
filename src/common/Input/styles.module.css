@@ -77,6 +77,7 @@
 
 .input__type__child--old-first {
     margin-left: var(--component-content-spacing);
+    filter: invert(0);
 }
 
 /***input type=selector***/
@@ -139,6 +140,7 @@
 
 .input__icon {
     height: var(--component-content-height);
+    filter: invert(1);
 }
 
 .input__icon--chevron {
