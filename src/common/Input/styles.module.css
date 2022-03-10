@@ -69,6 +69,7 @@
 .input__type__child+.input__type__child {
     margin-left: var(--component-content-spacing);
     color: white;
+    filter: invert(0);
 }
 
 .input__type__child--new-first {

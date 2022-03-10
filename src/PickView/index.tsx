@@ -10,16 +10,17 @@ interface PickViewProps {
   items: ItemType[]
   onItemClick?: (name: string, index: number, item: ItemType) => void
   name?: string
-  searchable?: boolean
+  searchable?: boolean,
+  paymentMethod?: boolean,
 }
 
 const PickView: React.FC<PickViewProps> = (props) => {
-  const { title, items, name = '', searchable = false } = props
+  const { title, items, name = '', searchable = false, paymentMethod = false, } = props
   const { onItemClick = () => null } = props
   return (
     <main className={styles.view}>
       <Header backButton title={title} />
-      <List onItemClick={(index, item) => onItemClick(name, index, item)} items={items} searchable={searchable} />
+      <List onItemClick={(index, item) => onItemClick(name, index, item)} items={items} searchable={searchable} paymentMethod={paymentMethod} />
     </main>
   );
 };

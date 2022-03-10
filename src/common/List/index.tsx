@@ -6,11 +6,12 @@ import { t } from 'i18next'
 type ListProps = {
     items: ItemType[]
     onItemClick?: (index: number, item: ItemType) => void
-    searchable?: boolean
+    searchable?: boolean,
+    paymentMethod?: boolean,
 }
 
 const List: React.FC<ListProps> = (props) => {
-    const { items, searchable = false } = props
+    const { items, searchable = false, paymentMethod = false, } = props
     const { onItemClick = () => null } = props
 
     const handleItemClick = useCallback((index: number, item: ItemType) => {
@@ -48,6 +49,7 @@ const List: React.FC<ListProps> = (props) => {
                             info={item.info}
                             icon={item.icon}
                             network={item.network}
+                            paymentMethod={paymentMethod}
                             onClick={() => handleItemClick(i, item)} />
                     )
                 }
@@ -59,14 +61,15 @@ const List: React.FC<ListProps> = (props) => {
 type ListItemProps = {
     index: number
     onClick: (index: number) => void
+    paymentMethod: boolean
 } & ItemType
 
 const ListItem: React.FC<ListItemProps> = (props) => {
-    const { index, name, info, icon, network } = props
+    const { index, name, info, icon, network, paymentMethod } = props
     const { onClick = () => null } = props
     return (
         <div className={`${styles['list-item']}`} onClick={() => onClick(index)}>
-            {icon && <img alt="Icon" className={`${styles['list-item__child']} ${styles['list-item__icon']}`} src={icon}  />}
+            {icon && <img alt="Icon" className={`${styles['list-item__child']} ${styles['list-item__icon']}`} src={icon} style={paymentMethod ? {filter: 'invert(0)'} : {filter: 'invert(1)'}} />}
             <div className={styles['list-item__child']}>
                 <span>{name}</span>
                 {info && <span className={`${styles['list-item__info']}`}>{info}</span>}

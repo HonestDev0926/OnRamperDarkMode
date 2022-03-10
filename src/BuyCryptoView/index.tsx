@@ -148,6 +148,7 @@ const BuyCryptoView: React.FC = () => {
                     title={t('header.selectPaymentMethod')}
                     items={data.availablePaymentMethods}
                     onItemClick={handleItemClick}
+                    paymentMethod={true}
                   />
                 )
             : undefined
