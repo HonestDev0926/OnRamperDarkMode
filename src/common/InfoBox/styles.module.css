@@ -33,12 +33,13 @@
     --primary-color: var(--errorColor);
     border-left: 5px solid var(--errorColor);
     background-color: #e79a0015;
-    color: var(--errorColor);
+    color: var(--errorColor) !important;
 }
 
 .text {
     flex-grow: 1;
     margin-right: calc( var(--padding-rl) * 0.75 );
+    color: #9aa0a6;
 }
 
 .text + .close-button {

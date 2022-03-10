@@ -18,16 +18,19 @@ type InputButtonType = {
     onHelpClick?: () => void
     hint?: string,
     network?: string,
+    userIntended?: boolean, 
+    chosenPaymentMethod?: boolean,
 }
 
 const InputButton = React.forwardRef<HTMLDivElement, InputButtonType>((props, ref) => {
     const transitionRef = React.useRef(null)
-    const { selectedOption, label, icon, className, iconPosition, error, network } = props
+    const { selectedOption, label, icon, className, iconPosition, error, network, userIntended, chosenPaymentMethod, } = props
+    
     return (
         <div ref={ref} className={`${styles.input} ${className}`}>
             {label && <label>{label}{props.onHelpClick && <>&nbsp;&nbsp;<HintIcon onClick={props.onHelpClick} /></>}</label>}
-            <div onClick={props.onClick} className={`${styles.input__type} ${styles['input__type--selector']} ${error || error === '' ? styles['input__type--selector--error'] : ''} ${props.onClick ? '' : styles['input__type--selector--disabled']}`}>
-                {icon && <img alt="Icon" src={icon} className={`${styles.input__type__child} ${styles.input__icon} ${iconPosition === 'end' ? styles['input__type__child--old-first'] : ''}`} />}
+            <div onClick={ userIntended ? undefined : props.onClick } className={`${styles.input__type} ${styles['input__type--selector']} ${error || error === '' ? styles['input__type--selector--error'] : ''} ${props.onClick ? '' : styles['input__type--selector--disabled']}`}>
+                {icon && <img alt="Icon" src={icon} className={`${styles.input__type__child} ${styles.input__icon} ${iconPosition === 'end' ? styles['input__type__child--old-first'] : ''}`} style={userIntended || chosenPaymentMethod ? {filter: 'invert(0)'} : {filter: 'invert(1)'}} />}
                 <span style={{ order: iconPosition === 'end' ? -1 : 'unset' }} className={`${styles.input__type__child} ${iconPosition === 'end' ? styles['input__type__child--new-first'] : ''}`}>{selectedOption}</span>
                 {network && <div className={`${styles['network__bubble']}`}>{network}</div>}
                 {props.onClick && <img alt="Chevron right" src={IconChevronRight} className={`${styles.input__type__child} ${styles.input__icon} ${styles['input__icon--chevron']}`} />}

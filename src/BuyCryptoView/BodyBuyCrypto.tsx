@@ -23,6 +23,9 @@ interface BodyBuyCryptoProps {
     selectedPaymentMethod?: ItemType
     handleInputChange: (name: string, value: any) => void
     isFilled?: boolean
+    userIntended?: boolean
+    chosenPaymentMethod?: boolean
+
 }
 
 const BodyBuyCrypto: React.FC<BodyBuyCryptoProps> = (props) => {
@@ -34,7 +37,7 @@ const BodyBuyCrypto: React.FC<BodyBuyCryptoProps> = (props) => {
     });
 
     const { openPickCrypto, onBuyCrypto, openPickCurrency, openPickPayment } = props
-    const { selectedCrypto = loadingItem, selectedCurrency = loadingItem, selectedPaymentMethod = loadingItem, isFilled = true } = props
+    const { selectedCrypto = loadingItem, selectedCurrency = loadingItem, selectedPaymentMethod = loadingItem, isFilled = true,  } = props
     const { handleInputChange } = props
     const { collected } = useContext(APIContext);
     const { triggerChat } = useContext(NavContext)
@@ -117,7 +120,7 @@ const BodyBuyCrypto: React.FC<BodyBuyCryptoProps> = (props) => {
             >
                 {collected.errors?.RATE?.message}
             </InfoBox>
-            <InputButton onClick={openPickCrypto} className={stylesCommon.body__child} label={t('mainScreen.userIntention')} selectedOption={selectedCrypto.name} icon={selectedCrypto.icon} network={selectedCrypto.network} />
+            <InputButton onClick={openPickCrypto} className={stylesCommon.body__child} label={t('mainScreen.userIntention')} selectedOption={selectedCrypto.name} icon={selectedCrypto.icon} network={selectedCrypto.network} chosenPaymentMethod={true} userIntended={true} />
             <div className={`${stylesCommon.body__child} ${stylesCommon['row-fields']}`}>
                 <InputTextAmount error={minMaxErrorsMsg} name='amount' type='number' value={collected.amount} onChange={handleInputChange} className={`${stylesCommon['row-fields__child']} ${stylesCommon.grow}`} label={t('mainScreen.amount')} symbol={selectedCurrency.symbol} placeholder="100" symbols={pairs} onSymbolChange={handleSymbolChange} disabled={!collected.isAmountEditable} />
                 <InputButton onClick={openPickCurrency} className={stylesCommon['row-fields__child']} label={t('mainScreen.currency')} selectedOption={selectedCurrency.name} icon={selectedCurrency.icon} />

@@ -5,6 +5,7 @@ declare type ListProps = {
     onItemClick?: (index: number, item: ItemType) => void;
     searchable?: boolean;
     paymentMethod?: boolean;
+    selectCrypto?: boolean;
 };
 declare const List: React.FC<ListProps>;
 export default List;

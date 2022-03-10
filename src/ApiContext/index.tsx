@@ -344,7 +344,7 @@ const APIProvider: React.FC<APIProviderType> = (props) => {
         "phoneCountryCode",
         +phoneCodes[
           responseGateways.localization.country?.toUpperCase() ??
-            DEFAULT_COUNTRY
+          DEFAULT_COUNTRY
         ]?.phoneCode
       );
       // save to state.date
@@ -384,12 +384,11 @@ const APIProvider: React.FC<APIProviderType> = (props) => {
 
       if (gateways.length <= 0) return {};
       if (state.data.availableCryptos.length <= 0) return {};
-
+      
       const actualCrypto =
         state.data.availableCryptos.find(
           (cryptoCurrency) => cryptoCurrency.id === _crypto?.id
         ) || state.data.availableCryptos[0];
-
       // FILTER POSIBLE GATEWAYS BY SELECTED CRYPTO
       const filtredGatewaysByCrypto = gateways.filter((item) =>
         item.cryptoCurrencies.some((crypto) => crypto.id === actualCrypto.id)
@@ -577,9 +576,9 @@ const APIProvider: React.FC<APIProviderType> = (props) => {
           state.collected.selectedPaymentMethod ||
           (defaultPaymentMethod
             ? {
-                id: defaultPaymentMethod,
-                name: defaultPaymentMethod,
-              }
+              id: defaultPaymentMethod,
+              name: defaultPaymentMethod,
+            }
             : undefined);
       else _selectedPaymentMethod = selectedPaymentMethod;
 
@@ -726,7 +725,7 @@ const APIProvider: React.FC<APIProviderType> = (props) => {
               if (
                 !minMaxErrors["MIN"] ||
                 (item.error.limit ?? Number.POSITIVE_INFINITY) <
-                  minMaxErrors[item.error.type].limit
+                minMaxErrors[item.error.type].limit
               ) {
                 minMaxErrors[item.error.type] = {
                   message: item.error.message,
@@ -738,7 +737,7 @@ const APIProvider: React.FC<APIProviderType> = (props) => {
               if (
                 !minMaxErrors[item.error.type] ||
                 (item.error.limit ?? Number.NEGATIVE_INFINITY) >
-                  minMaxErrors[item.error.type].limit
+                minMaxErrors[item.error.type].limit
               ) {
                 minMaxErrors[item.error.type] = {
                   message: item.error.message,
@@ -799,7 +798,18 @@ const APIProvider: React.FC<APIProviderType> = (props) => {
   useEffect(() => {
     handleCryptoChange();
   }, [handleCryptoChange]);
-
+  useEffect(() => {
+    dispatch({
+      type: CollectedActionsType.AddField,
+      payload: {
+        name: "selectedCrypto",
+        value: {
+          id: defaultCrypto,
+          name: defaultCrypto
+        }
+      }
+    });
+  }, [defaultCrypto])
   useEffect(() => {
     handleCurrencyChange();
   }, [handleCurrencyChange]);

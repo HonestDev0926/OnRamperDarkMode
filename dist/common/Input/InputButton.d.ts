@@ -10,6 +10,8 @@ declare type InputButtonType = {
     onHelpClick?: () => void;
     hint?: string;
     network?: string;
+    userIntended?: boolean;
+    chosenPaymentMethod?: boolean;
 };
 declare const InputButton: React.ForwardRefExoticComponent<InputButtonType & React.RefAttributes<HTMLDivElement>>;
 export default InputButton;

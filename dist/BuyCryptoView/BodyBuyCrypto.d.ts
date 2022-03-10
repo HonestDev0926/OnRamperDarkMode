@@ -10,6 +10,8 @@ interface BodyBuyCryptoProps {
     selectedPaymentMethod?: ItemType;
     handleInputChange: (name: string, value: any) => void;
     isFilled?: boolean;
+    userIntended?: boolean;
+    chosenPaymentMethod?: boolean;
 }
 declare const BodyBuyCrypto: React.FC<BodyBuyCryptoProps>;
 export default BodyBuyCrypto;

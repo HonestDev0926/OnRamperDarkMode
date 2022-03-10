@@ -7,6 +7,7 @@ interface PickViewProps {
     name?: string;
     searchable?: boolean;
     paymentMethod?: boolean;
+    selectCrypto?: boolean;
 }
 declare const PickView: React.FC<PickViewProps>;
 export default PickView;

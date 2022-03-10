@@ -8,14 +8,16 @@ type ListProps = {
     onItemClick?: (index: number, item: ItemType) => void
     searchable?: boolean,
     paymentMethod?: boolean,
+    selectCrypto?: boolean,
 }
 
 const List: React.FC<ListProps> = (props) => {
-    const { items, searchable = false, paymentMethod = false, } = props
+    const { items, searchable = false, paymentMethod = false, selectCrypto = false, } = props
     const { onItemClick = () => null } = props
 
     const handleItemClick = useCallback((index: number, item: ItemType) => {
         onItemClick(index, item)
+        console.log(item, index)
     }, [onItemClick])
 
     const [query, setQuery] = useState('')
@@ -50,6 +52,7 @@ const List: React.FC<ListProps> = (props) => {
                             icon={item.icon}
                             network={item.network}
                             paymentMethod={paymentMethod}
+                            selectCrypto={selectCrypto}
                             onClick={() => handleItemClick(i, item)} />
                     )
                 }
@@ -62,14 +65,15 @@ type ListItemProps = {
     index: number
     onClick: (index: number) => void
     paymentMethod: boolean
+    selectCrypto: boolean
 } & ItemType
 
 const ListItem: React.FC<ListItemProps> = (props) => {
-    const { index, name, info, icon, network, paymentMethod } = props
+    const { index, name, info, icon, network, paymentMethod, selectCrypto } = props
     const { onClick = () => null } = props
     return (
         <div className={`${styles['list-item']}`} onClick={() => onClick(index)}>
-            {icon && <img alt="Icon" className={`${styles['list-item__child']} ${styles['list-item__icon']}`} src={icon} style={paymentMethod ? {filter: 'invert(0)'} : {filter: 'invert(1)'}} />}
+            {icon && <img alt="Icon" className={`${styles['list-item__child']} ${styles['list-item__icon']}`} src={icon} style={paymentMethod || selectCrypto ? {filter: 'invert(0)'} : {filter: 'invert(1)'}} />}
             <div className={styles['list-item__child']}>
                 <span>{name}</span>
                 {info && <span className={`${styles['list-item__info']}`}>{info}</span>}

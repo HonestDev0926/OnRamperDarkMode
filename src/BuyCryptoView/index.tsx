@@ -121,6 +121,7 @@ const BuyCryptoView: React.FC = () => {
                     items={sortedCrypto}
                     onItemClick={handleItemClick}
                     searchable
+                    selectCrypto={true}
                   />
                 )
             : undefined
