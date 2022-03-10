@@ -384,11 +384,15 @@ const APIProvider: React.FC<APIProviderType> = (props) => {
 
       if (gateways.length <= 0) return {};
       if (state.data.availableCryptos.length <= 0) return {};
-      
+
+      const defaultNotFound = 
+        state.data.availableCryptos.find(
+          (cryptoCurrency) => cryptoCurrency.id === defaultCrypto
+        ) || state.data.availableCryptos[0];
       const actualCrypto =
         state.data.availableCryptos.find(
           (cryptoCurrency) => cryptoCurrency.id === _crypto?.id
-        ) || state.data.availableCryptos[0];
+        ) || defaultNotFound;
       // FILTER POSIBLE GATEWAYS BY SELECTED CRYPTO
       const filtredGatewaysByCrypto = gateways.filter((item) =>
         item.cryptoCurrencies.some((crypto) => crypto.id === actualCrypto.id)
