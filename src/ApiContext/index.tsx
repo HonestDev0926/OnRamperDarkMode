@@ -41,7 +41,7 @@ import i18n from "../i18n/setup";
 
 const BASE_DEFAULT_AMOUNT_IN_USD = 100;
 const DEFAULT_CURRENCY = "USD";
-const DEFAULT_CRYPTO = "BTC";
+const DEFAULT_CRYPTO = "USDT";
 export const DEFAULT_COUNTRY = "US";
 export const DEFAULT_US_STATE = "AL";
 export const DEFAULT_CA_STATE = "AB";
