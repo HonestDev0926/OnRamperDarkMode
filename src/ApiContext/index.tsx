@@ -384,11 +384,12 @@ const APIProvider: React.FC<APIProviderType> = (props) => {
 
       if (gateways.length <= 0) return {};
       if (state.data.availableCryptos.length <= 0) return {};
-
+      
       const defaultNotFound = 
         state.data.availableCryptos.find(
-          (cryptoCurrency) => cryptoCurrency.id === defaultCrypto
+          (cryptoCurrency) => cryptoCurrency.id === DEFAULT_CRYPTO
         ) || state.data.availableCryptos[0];
+        
       const actualCrypto =
         state.data.availableCryptos.find(
           (cryptoCurrency) => cryptoCurrency.id === _crypto?.id
