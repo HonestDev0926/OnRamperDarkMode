@@ -146,6 +146,7 @@
 
 .input__icon--chevron {
     height: 0.75rem;
+    filter: invert(0);
 }
 
 .input__icon--date {
