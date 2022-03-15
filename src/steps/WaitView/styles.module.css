@@ -3,11 +3,13 @@
   align-content: center;
   justify-content: center;
   text-align: center;
+  color: white;
 }
 
 .error-image {
   width: 15rem;
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
+  color: white;
 }
 
 .container-icon {
@@ -27,7 +29,8 @@
   height: 0rem;
   animation: telonan 0.75s cubic-bezier(0.85, 0, 0.15, 1) forwards infinite
     alternate;
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
+  color: white;
 }
 
 .telon:after {

@@ -134,6 +134,7 @@
 .item.item--main .content * {
     display: block;
     word-break: break-all;
+    color: white;
 }
 
 .item--main .title {
@@ -153,6 +154,7 @@
     font-size: 0.75rem;
     opacity: 0.5;
     display: inline-block;
+    color: white;
 }
 
 .item--detail .title {
