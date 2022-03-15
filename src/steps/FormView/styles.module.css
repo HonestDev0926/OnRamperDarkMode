@@ -2,6 +2,7 @@
 /*     margin-left: calc( var(--icon-width) / 2); */
     font-size: 0.75rem;
     padding-top: var(--body-space-childs);
+    color: white;
 }
 
 .terms:first-of-type {
