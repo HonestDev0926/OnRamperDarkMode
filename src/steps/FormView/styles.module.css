@@ -4,6 +4,9 @@
     padding-top: var(--body-space-childs);
     color: white;
 }
+.terms a {
+    color: #f37373;
+}
 
 .terms:first-of-type {
     margin-top: auto;
